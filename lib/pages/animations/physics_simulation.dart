@@ -6,14 +6,7 @@ class PhysicsSimulation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Physics Simulation')),
-      body: Container(
-          child: Center(
-        child: DraggableCard(
-          child: FlutterLogo(
-            size: 128,
-          ),
-        ),
-      )),
+      body: DraggableCard(child: FlutterLogo(size: 128)),
     );
   }
 }
@@ -32,28 +25,12 @@ class _DraggableCardState extends State<DraggableCard>
   Alignment _dragAlignment = Alignment.center;
   Animation<Alignment> _animation;
 
-  @override
-  void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _controller.addListener(() {
-      _dragAlignment = _animation.value;
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _runAnimation(Offset pixelPerSecond, Size size) {
+  void _runAnimation(Offset pixelsPerSecond, Size size) {
     _animation = _controller
         .drive(AlignmentTween(begin: _dragAlignment, end: Alignment.center));
 
-    final unitsPerSecondX = pixelPerSecond.dx / size.width;
-    final unitsPerSecondY = pixelPerSecond.dy / size.height;
+    final unitsPerSecondX = pixelsPerSecond.dx / size.width;
+    final unitsPerSecondY = pixelsPerSecond.dy / size.height;
     final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
     final unitVelocity = unitsPerSecond.distance;
 
@@ -62,9 +39,24 @@ class _DraggableCardState extends State<DraggableCard>
     final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
 
     _controller.animateWith(simulation);
+  }
 
-    _controller.reset();
-    _controller.forward();
+  @override
+  void initState() {
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _controller.addListener(() {
+      setState(() {
+        _dragAlignment = _animation.value;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -81,7 +73,7 @@ class _DraggableCardState extends State<DraggableCard>
           });
         },
         onPanEnd: (details) {
-          _runAnimation();
+          _runAnimation(details.velocity.pixelsPerSecond, size);
         },
         child: Align(
           alignment: _dragAlignment,
