@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'design/drawer_screen.dart';
 import 'design/export_fonts.dart';
 import 'design/snackbar_screen.dart';
+import 'design/update_ui.dart';
 
 class Design extends StatefulWidget {
   @override
@@ -47,8 +48,12 @@ class _DesignState extends State<Design> {
             title: Text('Export fonts from a package'),
           ),
           ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UpdateUi()));
+                }),
             title: Text('Update the UI based on orientation'),
           ),
           ListTile(
