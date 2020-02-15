@@ -1,6 +1,7 @@
 import 'package:cookbook/pages/animations/route_transition.dart';
 import 'package:flutter/material.dart';
 import 'animations/animate_properties.dart';
+import 'animations/fade_widget.dart';
 import 'animations/physics_simulation.dart';
 
 class Animations extends StatefulWidget {
@@ -52,7 +53,10 @@ class _AnimationsState extends State<Animations> {
           ListTile(
               trailing: IconButton(
                 icon: Icon(Icons.arrow_right),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => FadeWidget()));
+                },
               ),
               title: Text('Fade a widget in and out'))
         ],
