@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'design/drawer_screen.dart';
+import 'design/export_fonts.dart';
 import 'design/snackbar_screen.dart';
 
 class Design extends StatefulWidget {
@@ -37,8 +38,12 @@ class _DesignState extends State<Design> {
             title: Text('Display a snackbar'),
           ),
           ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ExportFonts()));
+                }),
             title: Text('Export fonts from a package'),
           ),
           ListTile(
