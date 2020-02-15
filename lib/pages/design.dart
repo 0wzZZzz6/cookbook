@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'design/drawer_screen.dart';
+
 class Design extends StatefulWidget {
   @override
   _DesignState createState() => _DesignState();
@@ -16,8 +18,12 @@ class _DesignState extends State<Design> {
             style: TextStyle(fontSize: 20),
           ),
           ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DrawerScreen()));
+                }),
             title: Text('Add a Drawer to a screen'),
           ),
           ListTile(
