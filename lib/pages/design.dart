@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'design/drawer_screen.dart';
+import 'design/snackbar_screen.dart';
 
 class Design extends StatefulWidget {
   @override
@@ -27,8 +28,12 @@ class _DesignState extends State<Design> {
             title: Text('Add a Drawer to a screen'),
           ),
           ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SnackbarScreen()));
+                }),
             title: Text('Display a snackbar'),
           ),
           ListTile(
