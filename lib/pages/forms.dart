@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'form/form_validation.dart';
+import 'form/style_textfield.dart';
 
 class Forms extends StatefulWidget {
   @override
@@ -25,8 +26,14 @@ class _FormsState extends State<Forms> {
           ),
           ListTile(
             title: Text('Create and style a text field'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => StyleTextfield()));
+                }),
           ),
           ListTile(
             title: Text('Focus and text fields'),
