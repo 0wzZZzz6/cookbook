@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'form/form_validation.dart';
+
 class Forms extends StatefulWidget {
   @override
   _FormsState createState() => _FormsState();
@@ -14,8 +16,12 @@ class _FormsState extends State<Forms> {
           Text('Forms', style: TextStyle(fontSize: 20)),
           ListTile(
             title: Text('Build a form with validation'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FormValidation()));
+                }),
           ),
           ListTile(
             title: Text('Create and style a text field'),
