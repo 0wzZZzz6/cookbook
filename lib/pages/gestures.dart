@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'gestures/material_ripple.dart';
+
 class Gestures extends StatefulWidget {
   @override
   _GesturesState createState() => _GesturesState();
@@ -17,8 +19,14 @@ class _GesturesState extends State<Gestures> {
           ),
           ListTile(
             title: Text('Add Material touch ripples'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MaterialRipple()));
+                }),
           ),
           ListTile(
             title: Text('Handle taps'),
