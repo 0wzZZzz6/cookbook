@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'form/focus_textfield.dart';
 import 'form/form_validation.dart';
 import 'form/style_textfield.dart';
 
@@ -37,8 +38,12 @@ class _FormsState extends State<Forms> {
           ),
           ListTile(
             title: Text('Focus and text fields'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FocusTextfield()));
+                }),
           ),
           ListTile(
             title: Text('Handle changes to a text field'),
