@@ -59,16 +59,6 @@ class _DesignState extends State<Design> {
           ListTile(
             trailing:
                 IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
-            title: Text('Use a custom font'),
-          ),
-          ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
-            title: Text('Use themes to share colors and font styles'),
-          ),
-          ListTile(
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
             title: Text('Work with tabs'),
           )
         ],
