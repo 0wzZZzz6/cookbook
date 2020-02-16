@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'gestures/handle_taps.dart';
 import 'gestures/material_ripple.dart';
+import 'gestures/swipe_dismiss.dart';
 
 class Gestures extends StatefulWidget {
   @override
@@ -42,8 +43,12 @@ class _GesturesState extends State<Gestures> {
           ),
           ListTile(
             title: Text('Implement swipe to dismiss'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SwipeDismiss()));
+                }),
           ),
         ],
       ),
