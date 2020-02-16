@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'form/focus_textfield.dart';
 import 'form/form_validation.dart';
 import 'form/handle_change.dart';
+import 'form/retrieve_value.dart';
 import 'form/style_textfield.dart';
 
 class Forms extends StatefulWidget {
@@ -55,8 +56,10 @@ class _FormsState extends State<Forms> {
           ),
           ListTile(
             title: Text('Retrieve the value of a text field'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RetrieveValue()))),
           ),
         ],
       ),
