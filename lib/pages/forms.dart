@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'form/focus_textfield.dart';
 import 'form/form_validation.dart';
+import 'form/handle_change.dart';
 import 'form/style_textfield.dart';
 
 class Forms extends StatefulWidget {
@@ -47,8 +48,10 @@ class _FormsState extends State<Forms> {
           ),
           ListTile(
             title: Text('Handle changes to a text field'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HandleChange()))),
           ),
           ListTile(
             title: Text('Retrieve the value of a text field'),
