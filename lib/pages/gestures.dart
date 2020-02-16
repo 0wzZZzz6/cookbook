@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'gestures/handle_taps.dart';
 import 'gestures/material_ripple.dart';
 
 class Gestures extends StatefulWidget {
@@ -30,8 +31,14 @@ class _GesturesState extends State<Gestures> {
           ),
           ListTile(
             title: Text('Handle taps'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_right),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HandleTaps(),
+                ),
+              ),
+            ),
           ),
           ListTile(
             title: Text('Implement swipe to dismiss'),
