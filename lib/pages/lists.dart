@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'list/grid_list.dart';
+import 'list/horizontal_list.dart';
 
 class Lists extends StatefulWidget {
   @override
@@ -28,8 +29,14 @@ class _ListsState extends State<Lists> {
           ),
           ListTile(
             title: Text('Create a horizontal list'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HorizontalList()));
+                }),
           ),
           ListTile(
             title: Text('Create lists with different types of items'),
