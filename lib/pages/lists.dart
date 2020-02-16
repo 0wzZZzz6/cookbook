@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'list/grid_list.dart';
+
 class Lists extends StatefulWidget {
   @override
   _ListsState createState() => _ListsState();
@@ -17,8 +19,12 @@ class _ListsState extends State<Lists> {
           ),
           ListTile(
             title: Text('Create a grid list'),
-            trailing:
-                IconButton(icon: Icon(Icons.arrow_right), onPressed: null),
+            trailing: IconButton(
+                icon: Icon(Icons.arrow_right),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => GridList()));
+                }),
           ),
           ListTile(
             title: Text('Create a horizontal list'),
